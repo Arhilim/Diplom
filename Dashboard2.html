@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+
+        .graph {
+            padding-top: 15%;
+            /* height: 100vh; */
+        }
+
+        .graph-item {
+        }
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <title>Количество пользователей типовой и специальной ИС</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <!-- <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- PAGE LEVEL PLUGIN STYLES -->
+    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+    <!-- <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- THEME STYLES -->
+    <!-- <link href="css/layout.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--Боковое меню-->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css2/style.css">
+    <link rel="stylesheet" href="css2/left-nav-style.css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title></title>
+</head>
+<body>
+
+
+    <!--Боковая панель-->
+    <input type="checkbox" id="nav-toggle" hidden>
+    <nav class="nav">
+        <!--
+        Метка с именем `id` чекбокса в `for` атрибуте
+        Символ Unicode 'TRIGRAM FOR HEAVEN' (U+2630)
+        Пустой атрибут `onclick` используем для исправления бага в iOS < 6.0
+        -->
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <!--
+        Здесь размещаете любую разметку,
+        если это меню, то скорее всего неупорядоченный список <ul>
+        -->
+        <ul>
+            <li><a href="index.html">Инфобокс</a>
+            <li><a href="Dashboard1.html">Дашборд №1</a>
+            <li><a href="Dashboard2.html">Дашборд №2</a>
+            <li><a href="Dashboard3.html">Дашборд №3</a>
+        </ul>
+    </nav>
+    <!--
+    Маска (затемнение) основного контента при включенной панели
+    по-умолчанию данная фишка не используется, если оно вам надо,
+        просто расккоментируйте div-контейнер ниже
+
+    <div class="mask-content"></div>
+        -->
+    <!--========== HEADER ==========-->
+    <header class="header navbar-fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a class="logo-wrap" href="index.html">
+                        <img class="logo-img" src="img/logo1.png" alt="Asentus Logo">
+                    </a>
+                </div>
+                <!-- End Logo -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="nav-item">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#graph1">график №1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#graph2">график №2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#graph3">график №3</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard3.html">Дашборд №3</a></li>
+                    </ul>
+                </div>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--========== END HEADER ==========-->
+    <main class="container">
+        <!--Первый график-->
+        <div id="graph1" class="graph container">
+            <!--Контейнер для регулировки положения диаграммы-->
+            <div id="container" class="chart_wrap graph-item"></div>
+            <script>
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Количество информационных систем специальной деятельности (для автоматизации или поддержки основной деятельности в рамках исполнения полномоций, уникальных для конкретного органа местного самоуправления)'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: {point.percentage:.1f}%'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}: {point.y:f}',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'sities',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Городской округ город-герой Волгоград',
+                            y: 88,
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name: 'Городищенский муниципальный район',
+                            y: 21
+                        }, {
+                            name: 'Калачевский муниципальный район',
+                            y: 17
+                        }, {
+                            name: 'Ильевское сельское поселение',
+                            y: 32
+                        }, {
+                            name: 'Ляпичевское сельское поселение',
+                            y: 21
+                        }, {
+                            name: 'Зарянское сельское поселение',
+                            y: 16
+                        }, {
+                            name: 'Мариновское сельское поселение',
+                            y: 24
+                        }, {
+                            name: 'Серафимовический муниципальный район',
+                            y: 20
+                        }, {
+                            name: 'Паньшинское сельское поселение',
+                            y: 15
+                        }, {
+                            name: 'Алешкинское сельское поселение',
+                            y: 12
+                        }, {
+                            name: 'Прочее',
+                            y: 124
+                        }]
+                    }]
+                });
+            </script>
+        </div>
+
+        <!--Второй график-->
+        <div id="graph2" class="graph container">
+            <div id="container2" class="chart_wrap graph-item"></div>
+            <script>
+                Highcharts.chart('container2', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Количество пользователей типовой информационной системы'
+                    },
+                    xAxis: {
+                        type: 'category'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Количество пользователей типовой информационной системы'
+                        }
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y:f}'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: 'дата и значение ',
+                        pointFormat: '{point.name}г.- {point.y:f}'
+                    },
+                    series: [{
+                        name: 'Brands',
+                        colorByPoint: true,
+                        data: [{
+                            name: '01.01.2017',
+                            y: 11321,
+                            drilldown: 'Microsoft Internet Explorer'
+                        }, {
+                            name: '01.01.2018',
+                            y: 11794,
+                            drilldown: 'Chrome'
+                        }, {
+                            name: '01.01.2019',
+                            y: 10919,
+                            drilldown: 'Firefox'
+                        }, {
+                            name: '01.01.2020',
+                            y: 18454,
+                            drilldown: 'Safari'
+                        }]
+                    }],
+                });
+            </script>
+        </div>
+        <!--Третий график-->
+        <div id="graph3" class="graph container">
+            <!--Контейнер для регулировки положения диаграммы-->
+            <div id="container3" class="chart_wrap graph-item"></div>
+            <script>
+                Highcharts.chart('container3', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Количество пользователей специальной информационной системы'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: {point.percentage:.1f}%'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}: {point.y:f}',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        name: 'sities',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'Городской округ город-герой Волгоград',
+                            y: 3742,
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name: 'Октябрьский муниципальный район',
+                            y: 330
+                        }, {
+                            name: 'Новоаннинский муниципальный район',
+                            y: 60
+                        }, {
+                            name: 'Калачевский муниципальный район',
+                            y: 31
+                        }, {
+                            name: 'Советское сельское поселение',
+                            y: 21
+                        }, {
+                            name: 'Кумылженский муниципальный район',
+                            y: 19
+                        }, {
+                            name: 'Глазуновское сельское поселение',
+                            y: 14
+                        }, {
+                            name: 'Береславское сельское поселение',
+                            y: 12
+                        }, {
+                            name: 'Пятиизбянское сельское поселение',
+                            y: 12
+                        }, {
+                            name: 'Терновское сельское поселение',
+                            y: 12
+                        }, {
+                            name: 'Прочее',
+                            y: 109
+                        }]
+                    }]
+                });
+            </script>
+        </div>
+    </main>
+
+    <div id="footer4">
+        <p style="color: #FFFFFF; margin-top: 15%">Дашборд</p>
+    </div>
+</body>
+</html>
