@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
-    <title>Информатизация в муниципальном образовании</title>
+    <title>Взаимосвязь количества людей зарегистрированных в ЕСИА с количеством автоматизированных рабочих мест</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
@@ -41,9 +41,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
     <link rel="stylesheet" href="css.css" type="text/css" />
-
     <title></title>
 </head>
 <body>
@@ -90,176 +88,159 @@
                     </a>
                 </div>
                 <div class="cat">
-                        <span><big><b>Информатизация в муниципальном образовании</b></big></span>
+                    <span><b>Взаимосвязь количества людей зарегистрированных в ЕСИА с количеством автоматизированных рабочих мест</b></span>
+                </div><!-- End Logo -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="nav-item">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="Dashboard4.html">Дашборд №4</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard1.html">Дашборд №1</a></li>
+                    </ul>
                 </div>
-                    <!-- End Logo -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="nav-item">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="Dashboard5.html">Дашборд №5</a></li>
-                            <li class="nav-item"><a class="nav-link" href="Dashboard2.html">Дашборд №2</a></li>
-                        </ul>
-                    </div>
-                    <!-- End Navbar Collapse -->
-                </div>
-</nav>
+                <!-- End Navbar Collapse -->
+            </div>
+        </nav>
         <!-- Navbar -->
     </header>
     <!--========== END HEADER ==========-->
     <main class="">
+        <!--Первый график-->
         <div class="row">
-            <!--Первый график-->
-            <div id="graph1" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div id="graph1">
                 <!--Контейнер для регулировки положения диаграммы-->
                 <div id="container" class="chart_wrap graph-item"></div>
                 <script>
                     Highcharts.chart('container', {
                         chart: {
-                            plotBackgroundColor: null,
-                            plotBorderWidth: null,
-                            plotShadow: false,
-                            type: 'pie'
+                            type: 'column'
                         },
                         title: {
-                            text: 'Расходы на Интернет в муниципальном образовании'
+                            text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых в подведомтсвенных муниципалитету структурах'
                         },
-                        tooltip: {
-                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: ''
+                            }
+                        },
+                        legend: {
+                            enabled: false
                         },
                         plotOptions: {
-                            pie: {
-                                allowPointSelect: true,
-                                cursor: 'pointer',
+                            series: {
+                                borderWidth: 0,
                                 dataLabels: {
                                     enabled: true,
-                                    format: '{point.name}: {point.percentage:.1f} %',
-                                    style: {
-                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                                    }
+                                    format: '{point.y:f}'
                                 }
                             }
                         },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
                         series: [{
-                            name: 'sities',
+                            name: 'Города',
                             colorByPoint: true,
                             data: [{
-                                name: 'Городской округ город-герой Волгоград',
-                                y: 82.19,
+                                name: '01.01.2017',
+                                y: 33567
+                                , color: '#0000CD'
+                            }, {
+                                name: '01.01.2018',
+                                y: 153666
+                                ,
                                 sliced: true,
-                                selected: true
+                                selected: true, color: '#4169E1'
                             }, {
-                                name: 'Ольховский муниципальный район',
-                                y: 2.67
+                                name: '01.01.2019',
+                                y: 125706
+                                , color: '#7FFFD4'
                             }, {
-                                name: 'Урюпинский муниципальный район',
-                                y: 0.54
-                            }, {
-                                name: 'Камышинский муниципальный район',
-                                y: 0.16
-                            }, {
-                                name: 'Алексеевский муниципальный район',
-                                y: 6.36
-                            }, {
-                                name: 'Октябрьский муниципальный район',
-                                y: 1.06
-                            }, {
-                                name: 'Старополтавский муниципальный район',
-                                y: 0.22
-                            }, {
-                                name: 'Светлоярский муниципальный район',
-                                y: 3.28
-                            }, {
-                                name: 'Палассовский муниципальный район',
-                                y: 0.81
-                            }, {
-                                name: 'Прочее',
-                                y: 2.47
-                            }, {
-                                name: 'Еланский муниципальный район',
-                                y: 0.18
+                                name: '01.01.2020',
+                                y: 195042
+                                , color: '#40E0D0'
                             }]
                         }]
                     });
                 </script>
             </div>
 
-
             <!--Второй график-->
-            <div id="graph2" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div id="graph2">
                 <div id="container2" class="chart_wrap graph-item"></div>
                 <script>
                     Highcharts.chart('container2', {
                         chart: {
-                            plotBackgroundColor: null,
-                            plotBorderWidth: null,
-                            plotShadow: false,
-                            type: 'pie'
+                            type: 'column'
                         },
                         title: {
-                            text: 'Пункты доступа в Интернет в муниципальном образовании'
+                            text: 'Количество автоматизированных рабочих мест'
                         },
-                        tooltip: {
-                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: ''
+                            }
+                        },
+                        legend: {
+                            enabled: false
                         },
                         plotOptions: {
-                            pie: {
-                                allowPointSelect: true,
-                                cursor: 'pointer',
+                            series: {
+                                borderWidth: 0,
                                 dataLabels: {
                                     enabled: true,
-                                    format: '{point.name}: {point.percentage:.1f} %',
-                                    style: {
-                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                                    }
+                                    format: '{point.y:f}'
                                 }
                             }
                         },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
                         series: [{
-                            name: 'sities',
+                            name: 'Города',
                             colorByPoint: true,
                             data: [{
-                                name: 'Прочее',
-                                y: 38.79
+                                name: 'Городской округ город Волжский',
+                                y: 2252, color: '#0000CD'
                             }, {
                                 name: 'Городской округ город-герой Волгоград',
-                                y: 44.25,
+                                y: 5049,
+
                                 sliced: true,
-                                selected: true
+                                selected: true, color: '#4169E1'
                             }, {
-                                name: 'Городищенский муниципальный район',
-                                y: 1.7
-                            }, {
-                                name: 'Котельниковский муниципальный район',
-                                y: 1
-                            }, {
-                                name: 'Котовский муниципальный район',
-                                y: 0.92
-                            }, {
-                                name: 'Городской округ город Волжский',
-                                y: 6.94
-                            }, {
-                                name: 'Среднеахтубинский муниципальный район',
-                                y: 1.65
-                            }, {
-                                name: 'Суровинский муниципальный район',
-                                y: 0.97
+                                name: 'Городской округ город Михайловка',
+                                y: 1137, color: '#7FFFD4'
                             }, {
                                 name: 'Городской округ город Камышин',
-                                y: 1.79
+                                y: 1644, color: '#40E0D0'
                             }, {
-                                name: 'Палассовский муниципальный район',
-                                y: 1.07
+                                name: 'Городищенский муниципальный район',
+                                y: 1161, color: '#00CED1'
                             }, {
-                                name: 'Светлоярский муниципальный район',
-                                y: 0.93
-                            }]
+                                name: 'Котельниковский муниципальный район',
+                                y: 1018, color: '#87CEEB'
+                            }, {
+                                name: 'Жирновский муниципальный район',
+                                y: 1017, color: '#4682B4'
+                            }, {
+                                name: 'Камышинский муниципальный район',
+                                y: 1012, color: '#40E0D0'
+                            }
+                            ]
                         }]
                     });
                 </script>
             </div>
         </div>
     </main>
-
     <div id="footer4">
         <p style="color: #FFFFFF; margin-top: 15%">Дашборд</p>
     </div>

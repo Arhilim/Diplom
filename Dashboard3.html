@@ -5,20 +5,6 @@
 <head>
     <meta charset="utf-8" />
 
-    <style type="text/css">
-        body {
-            padding-top: 80px;
-        }
-
-        .graph {
-            padding-top: 15%;
-            /* height: 100vh; */
-        }
-
-        .graph-item {
-        }
-    </style>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
@@ -55,7 +41,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <link rel="stylesheet" href="css.css" type="text/css" />
     <title></title>
 </head>
 <body>
@@ -79,6 +65,8 @@
             <li><a href="Dashboard1.html">Дашборд №1</a>
             <li><a href="Dashboard2.html">Дашборд №2</a>
             <li><a href="Dashboard3.html">Дашборд №3</a>
+            <li><a href="Dashboard4.html">Дашборд №4</a>
+            <li><a href="Dashboard5.html">Дашборд №5</a>
         </ul>
     </nav>
     <!--
@@ -95,18 +83,18 @@
             <div class="container">
                 <!-- Logo -->
                 <div class="logo">
-                    <a class="logo-wrap" href="#body">
+                    <a class="logo-wrap" href="index.html">
                         <img class="logo-img" src="img/logo1.png" alt="Asentus Logo">
                     </a>
                 </div>
-                <!-- End Logo -->
+                <div class="cat">
+                    <span><big><b>Статистика по ЕСИА</b></big></span>
+                </div><!-- End Logo -->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="nav-item">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#graph1">график №1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#graph2">график №2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#graph3">график №3</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Dashboard1.html">Дашборд №1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard2.html">Дашборд №2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard4.html">Дашборд №4</a></li>
                     </ul>
                 </div>
                 <!-- End Navbar Collapse -->
@@ -115,200 +103,204 @@
         <!-- Navbar -->
     </header>
     <!--========== END HEADER ==========-->
-    <main class="container">
+    <main class="">
         <!--Первый график-->
-        <div id="graph1" class="graph container">
-            <!--Контейнер для регулировки положения диаграммы-->
-            <div id="container" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Доля муниципальных служащих и сотрудников подведомтсвенных муниципалитету структур зарегистрированных в ЕСИА'
-                    },
-                    xAxis: {
-                        type: 'category'
-                    },
-                    yAxis: {
+        <div class="row">
+            <div id="graph1" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <!--Контейнер для регулировки положения диаграммы-->
+                <div id="container" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
                         title: {
                             text: 'Доля муниципальных служащих и сотрудников подведомтсвенных муниципалитету структур зарегистрированных в ЕСИА'
-                        }
-                    },
-                    legend: {
-                        enabled: false
-                    },
-                    plotOptions: {
-                        series: {
-                            borderWidth: 0,
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.y:f}'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Доля муниципальных служащих и сотрудников подведомтсвенных муниципалитету структур зарегистрированных в ЕСИА'
                             }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: 'дата и значение ',
-                        pointFormat: '{point.name}г.- {point.y:f}'
-                    },
-                    series: [{
-                        name: 'Brands',
-                        colorByPoint: true,
-                        data: [{
-                            name: '01.01.2017',
-                            y: 60,
-                            drilldown: 'Microsoft Internet Explorer'
-                        }, {
-                            name: '01.01.2018',
-                            y: 89,
-                            drilldown: 'Chrome'
-                        }, {
-                            name: '01.01.2019',
-                            y: 92,
-                            drilldown: 'Firefox'
-                        }, {
-                            name: '01.01.2020',
-                            y: 99,
-                            drilldown: 'Safari'
-                        }]
-                    }],
-                });
-            </script>
-        </div>
-
-        <!--Второй график-->
-        <div id="graph2" class="graph container">
-            <div id="container2" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container2', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых подведоственных муниципалитету структурах'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: {point.percentage:.1f}%'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.y:f}',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                borderWidth: 0,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.y:f}'
                                 }
                             }
-                        }
-                    },
-                    series: [{
-                        name: 'sities',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'Городской округ город-герой Волгоград',
-                            y: 53784,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'Городской округ город Волжский',
-                            y: 41183
-                        }, {
-                            name: 'Октябрьский муниципальный район',
-                            y: 34423
-                        }, {
-                            name: 'Еланский муниципальный район',
-                            y: 25539
-                        }, {
-                            name: 'Среднеахтубинский муниципальный район',
-                            y: 19676
-                        }, {
-                            name: 'Городской округ город Михайловка',
-                            y: 18943
-                        }, {
-                            name: 'Николаевский муниципальный район',
-                            y: 18576
-                        }, {
-                            name: 'Суровикинский муниципальный район',
-                            y: 17031
-                        }, {
-                            name: 'Чернышевский муниципальный район',
-                            y: 15271
-                        }, {
-                            name: 'Городской округ город Камышин',
-                            y: 13308
-                        }, {
-                            name: 'Прочее',
-                            y: 250247
-                        }]
-                    }]
-                });
-            </script>
-        </div>
-        <!--Третий график-->
-        <div id="graph3" class="graph container">
-            <!--Контейнер для регулировки положения диаграммы-->
-            <div id="container3" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container3', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых подведоственных муниципалитету структурах'
-                    },
-                    xAxis: {
-                        type: 'category'
-                    },
-                    yAxis: {
+                        },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+                            data: [{
+                                name: '01.01.2017',
+                                y: 60,
+                                drilldown: 'Microsoft Internet Explorer'
+                            }, {
+                                name: '01.01.2018',
+                                y: 89,
+                                drilldown: 'Chrome'
+                            }, {
+                                name: '01.01.2019',
+                                y: 92,
+                                drilldown: 'Firefox'
+                            }, {
+                                name: '01.01.2020',
+                                y: 99,
+                                drilldown: 'Safari'
+                            }]
+                        }],
+                    });
+                </script>
+            </div>
+
+            <!--Второй график-->
+            <div id="graph2" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div id="container2" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container2', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
                         title: {
                             text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых подведоственных муниципалитету структурах'
-                        }
-                    },
-                    legend: {
-                        enabled: false
-                    },
-                    plotOptions: {
-                        series: {
-                            borderWidth: 0,
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.y:f}'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.y:f}',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
                             }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: 'дата и значение ',
-                        pointFormat: '{point.name}г.- {point.y:f}'
-                    },
-                    series: [{
-                        name: 'Brands',
-                        colorByPoint: true,
-                        data: [{
-                            name: '01.01.2017',
-                            y: 33567,
-                            drilldown: 'Microsoft Internet Explorer'
-                        }, {
-                            name: '01.01.2018',
-                            y: 153666,
-                            drilldown: 'Chrome'
-                        }, {
-                            name: '01.01.2019',
-                            y: 125706,
-                            drilldown: 'Firefox'
-                        }, {
-                            name: '01.01.2020',
-                            y: 195042,
-                            drilldown: 'Safari'
+                        },
+                        series: [{
+                            name: 'sities',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Городской округ город-герой Волгоград',
+                                y: 53784,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Городской округ город Волжский',
+                                y: 41183
+                            }, {
+                                name: 'Октябрьский муниципальный район',
+                                y: 34423
+                            }, {
+                                name: 'Еланский муниципальный район',
+                                y: 25539
+                            }, {
+                                name: 'Среднеахтубинский муниципальный район',
+                                y: 19676
+                            }, {
+                                name: 'Городской округ город Михайловка',
+                                y: 18943
+                            }, {
+                                name: 'Николаевский муниципальный район',
+                                y: 18576
+                            }, {
+                                name: 'Суровикинский муниципальный район',
+                                y: 17031
+                            }, {
+                                name: 'Чернышевский муниципальный район',
+                                y: 15271
+                            }, {
+                                name: 'Городской округ город Камышин',
+                                y: 13308
+                            }, {
+                                name: 'Прочее',
+                                y: 250247
+                            }]
                         }]
-                    }],
-                });
-            </script>
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <!--Третий график-->
+            <div id="graph3" class="graph col-lg-11 col-md-6 col-sm-6 col-xs-6">
+                <!--Контейнер для регулировки положения диаграммы-->
+                <div id="container3" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container3', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых подведоственных муниципалитету структурах'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Количество граждан прошедших процедуру подтверждения личности в ЦО ЕСИА, открытых подведоственных муниципалитету структурах'
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                borderWidth: 0,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.y:f}'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+                            data: [{
+                                name: '01.01.2017',
+                                y: 33567,
+                                drilldown: 'Microsoft Internet Explorer'
+                            }, {
+                                name: '01.01.2018',
+                                y: 153666,
+                                drilldown: 'Chrome'
+                            }, {
+                                name: '01.01.2019',
+                                y: 125706,
+                                drilldown: 'Firefox'
+                            }, {
+                                name: '01.01.2020',
+                                y: 195042,
+                                drilldown: 'Safari'
+                            }]
+                        }],
+                    });
+                </script>
+            </div>
         </div>
     </main>
 

@@ -4,21 +4,6 @@
 
 <head>
     <meta charset="utf-8" />
-
-    <style type="text/css">
-        body {
-            padding-top: 80px;
-        }
-
-        .graph {
-            padding-top: 15%;
-            /* height: 100vh; */
-        }
-
-        .graph-item {
-        }
-    </style>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
@@ -55,12 +40,11 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="css.css" type="text/css" />
 
     <title></title>
 </head>
 <body>
-
-
     <!--Боковая панель-->
     <input type="checkbox" id="nav-toggle" hidden>
     <nav class="nav">
@@ -79,6 +63,8 @@
             <li><a href="Dashboard1.html">Дашборд №1</a>
             <li><a href="Dashboard2.html">Дашборд №2</a>
             <li><a href="Dashboard3.html">Дашборд №3</a>
+            <li><a href="Dashboard4.html">Дашборд №4</a>
+            <li><a href="Dashboard5.html">Дашборд №5</a>
         </ul>
     </nav>
     <!--
@@ -99,15 +85,16 @@
                         <img class="logo-img" src="img/logo1.png" alt="Asentus Logo">
                     </a>
                 </div>
-                <!-- End Logo -->
+                <div class="cat">
+                    <span><big><b>Количество пользователей типовой и специальной ИС</b></big></span>
+                </div><!-- End Logo -->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="nav-item">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#graph1">график №1</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#graph2">график №2</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#graph3">график №3</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Dashboard1.html">Дашборд №1</a></li>
                         <li class="nav-item"><a class="nav-link" href="Dashboard3.html">Дашборд №3</a></li>
                     </ul>
+
                 </div>
                 <!-- End Navbar Collapse -->
             </div>
@@ -115,11 +102,10 @@
         <!-- Navbar -->
     </header>
     <!--========== END HEADER ==========-->
-    <main class="container">
-        <!--Первый график-->
+    <main class="">
         <div class="row">
-            
-            <div id="graph1" class="graph container">
+            <!--Первый график-->
+            <div id="graph1" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <!--Контейнер для регулировки положения диаграммы-->
                 <div id="container" class="chart_wrap graph-item"></div>
                 <script>
@@ -194,66 +180,7 @@
             </div>
 
             <!--Второй график-->
-            <div id="graph2" class="graph container">
-                <div id="container2" class="chart_wrap graph-item"></div>
-                <script>
-                    Highcharts.chart('container2', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Количество пользователей типовой информационной системы'
-                        },
-                        xAxis: {
-                            type: 'category'
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Количество пользователей типовой информационной системы'
-                            }
-                        },
-                        legend: {
-                            enabled: false
-                        },
-                        plotOptions: {
-                            series: {
-                                borderWidth: 0,
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '{point.y:f}'
-                                }
-                            }
-                        },
-                        tooltip: {
-                            headerFormat: 'дата и значение ',
-                            pointFormat: '{point.name}г.- {point.y:f}'
-                        },
-                        series: [{
-                            name: 'Brands',
-                            colorByPoint: true,
-                            data: [{
-                                name: '01.01.2017',
-                                y: 11321,
-                                drilldown: 'Microsoft Internet Explorer'
-                            }, {
-                                name: '01.01.2018',
-                                y: 11794,
-                                drilldown: 'Chrome'
-                            }, {
-                                name: '01.01.2019',
-                                y: 10919,
-                                drilldown: 'Firefox'
-                            }, {
-                                name: '01.01.2020',
-                                y: 18454,
-                                drilldown: 'Safari'
-                            }]
-                        }],
-                    });
-                </script>
-            </div>
-            <!--Третий график-->
-            <div id="graph3" class="graph container">
+            <div id="graph3" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <!--Контейнер для регулировки положения диаграммы-->
                 <div id="container3" class="chart_wrap graph-item"></div>
                 <script>
@@ -323,6 +250,67 @@
                                 y: 109
                             }]
                         }]
+                    });
+                </script>
+            </div>
+        </div>
+            <!--Третий график-->
+        <div class="row mt-5">
+            <div id="graph2" class="graph col-lg-11 col-md-6 col-sm-6 col-xs-6">
+                <div id="container2" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container2', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Количество пользователей типовой информационной системы'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Количество пользователей типовой информационной системы'
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                borderWidth: 0,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.y:f}'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+                            data: [{
+                                name: '01.01.2017',
+                                y: 11321,
+                                drilldown: 'Microsoft Internet Explorer'
+                            }, {
+                                name: '01.01.2018',
+                                y: 11794,
+                                drilldown: 'Chrome'
+                            }, {
+                                name: '01.01.2019',
+                                y: 10919,
+                                drilldown: 'Firefox'
+                            }, {
+                                name: '01.01.2020',
+                                y: 18454,
+                                drilldown: 'Safari'
+                            }]
+                        }],
                     });
                 </script>
             </div>
