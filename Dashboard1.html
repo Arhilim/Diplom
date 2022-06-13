@@ -4,21 +4,6 @@
 
 <head>
     <meta charset="utf-8" />
-
-    <style type="text/css">
-        body {
-            padding-top: 80px;
-        }
-
-        .graph {
-            padding-top: 15%;
-            /* height: 100vh; */
-        }
-
-        .graph-item {
-        }
-    </style>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
@@ -114,155 +99,158 @@
         <!-- Navbar -->
     </header>
     <!--========== END HEADER ==========-->
-    <main class="container">
-        <!--Первый график-->
-        <div id="graph1" class="graph container">
-            <!--Контейнер для регулировки положения диаграммы-->
-            <div id="container" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Расходы на Интернет в муниципальном образовании'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: {point.percentage:.1f}%'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.percentage:.1f} %',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+    <main class="">
+        <div class="row">
+            <!--Первый график-->
+            <div id="graph1" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6" >
+                <!--Контейнер для регулировки положения диаграммы-->
+                <div id="container" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Расходы на Интернет в муниципальном образовании'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.percentage:.1f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
                                 }
                             }
-                        }
-                    },
-                    series: [{
-                        name: 'sities',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'Городской округ город-герой Волгоград',
-                            y: 82.19,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'Ольховский муниципальный район',
-                            y: 2.67
-                        }, {
-                            name: 'Урюпинский муниципальный район',
-                            y: 0.54
-                        }, {
-                            name: 'Камышинский муниципальный район',
-                            y: 0.16
-                        }, {
-                            name: 'Алексеевский муниципальный район',
-                            y: 6.36
-                        }, {
-                            name: 'Октябрьский муниципальный район',
-                            y: 1.06
-                        }, {
-                            name: 'Старополтавский муниципальный район',
-                            y: 0.22
-                        }, {
-                            name: 'Светлоярский муниципальный район',
-                            y: 3.28
-                        }, {
-                            name: 'Палассовский муниципальный район',
-                            y: 0.81
-                        }, {
-                            name: 'Прочее',
-                            y: 2.47
-                        }, {
-                            name: 'Еланский муниципальный район',
-                            y: 0.18
+                        },
+                        series: [{
+                            name: 'sities',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Городской округ город-герой Волгоград',
+                                y: 82.19,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Ольховский муниципальный район',
+                                y: 2.67
+                            }, {
+                                name: 'Урюпинский муниципальный район',
+                                y: 0.54
+                            }, {
+                                name: 'Камышинский муниципальный район',
+                                y: 0.16
+                            }, {
+                                name: 'Алексеевский муниципальный район',
+                                y: 6.36
+                            }, {
+                                name: 'Октябрьский муниципальный район',
+                                y: 1.06
+                            }, {
+                                name: 'Старополтавский муниципальный район',
+                                y: 0.22
+                            }, {
+                                name: 'Светлоярский муниципальный район',
+                                y: 3.28
+                            }, {
+                                name: 'Палассовский муниципальный район',
+                                y: 0.81
+                            }, {
+                                name: 'Прочее',
+                                y: 2.47
+                            }, {
+                                name: 'Еланский муниципальный район',
+                                y: 0.18
+                            }]
                         }]
-                    }]
-                });
-            </script>
-        </div>
+                    });
+                </script>
+            </div>
 
-        <!--Второй график-->
-        <div id="graph2" class="graph container">
-            <div id="container2" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container2', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Пункты доступа в Интернет в муниципальном образовании'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: {point.percentage:.1f}%'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.percentage:.1f} %',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            <!--Второй график-->
+            <div id="graph2" class="graph col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div id="container2" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container2', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Пункты доступа в Интернет в муниципальном образовании'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.percentage:.1f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
                                 }
                             }
-                        }
-                    },
-                    series: [{
-                        name: 'sities',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'Прочее',
-                            y: 38.79
-                        }, {
-                            name: 'Городской округ город-герой Волгоград',
-                            y: 44.25,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'Городищенский муниципальный район',
-                            y: 1.7
-                        }, {
-                            name: 'Котельниковский муниципальный район',
-                            y: 1
-                        }, {
-                            name: 'Котовский муниципальный район',
-                            y: 0.92
-                        }, {
-                            name: 'Городской округ город Волжский',
-                            y: 6.94
-                        }, {
-                            name: 'Среднеахтубинский муниципальный район',
-                            y: 1.65
-                        }, {
-                            name: 'Суровинский муниципальный район',
-                            y: 0.97
-                        }, {
-                            name: 'Городской округ город Камышин',
-                            y: 1.79
-                        }, {
-                            name: 'Палассовский муниципальный район',
-                            y: 1.07
-                        }, {
-                            name: 'Светлоярский муниципальный район',
-                            y: 0.93
+                        },
+                        series: [{
+                            name: 'sities',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Прочее',
+                                y: 38.79
+                            }, {
+                                name: 'Городской округ город-герой Волгоград',
+                                y: 44.25,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Городищенский муниципальный район',
+                                y: 1.7
+                            }, {
+                                name: 'Котельниковский муниципальный район',
+                                y: 1
+                            }, {
+                                name: 'Котовский муниципальный район',
+                                y: 0.92
+                            }, {
+                                name: 'Городской округ город Волжский',
+                                y: 6.94
+                            }, {
+                                name: 'Среднеахтубинский муниципальный район',
+                                y: 1.65
+                            }, {
+                                name: 'Суровинский муниципальный район',
+                                y: 0.97
+                            }, {
+                                name: 'Городской округ город Камышин',
+                                y: 1.79
+                            }, {
+                                name: 'Палассовский муниципальный район',
+                                y: 1.07
+                            }, {
+                                name: 'Светлоярский муниципальный район',
+                                y: 0.93
+                            }]
                         }]
-                    }]
-                });
-            </script>
+                    });
+                </script>
+            </div>
         </div>
+        
     </main>
 
     <div id="footer4">

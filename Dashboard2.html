@@ -117,212 +117,215 @@
     <!--========== END HEADER ==========-->
     <main class="container">
         <!--Первый график-->
-        <div id="graph1" class="graph container">
-            <!--Контейнер для регулировки положения диаграммы-->
-            <div id="container" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Количество информационных систем специальной деятельности (для автоматизации или поддержки основной деятельности в рамках исполнения полномоций, уникальных для конкретного органа местного самоуправления)'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: {point.percentage:.1f}%'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.y:f}',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        <div class="row">
+            
+            <div id="graph1" class="graph container">
+                <!--Контейнер для регулировки положения диаграммы-->
+                <div id="container" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Количество информационных систем специальной деятельности (для автоматизации или поддержки основной деятельности в рамках исполнения полномоций, уникальных для конкретного органа местного самоуправления)'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.y:f}',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
                                 }
                             }
-                        }
-                    },
-                    series: [{
-                        name: 'sities',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'Городской округ город-герой Волгоград',
-                            y: 88,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'Городищенский муниципальный район',
-                            y: 21
-                        }, {
-                            name: 'Калачевский муниципальный район',
-                            y: 17
-                        }, {
-                            name: 'Ильевское сельское поселение',
-                            y: 32
-                        }, {
-                            name: 'Ляпичевское сельское поселение',
-                            y: 21
-                        }, {
-                            name: 'Зарянское сельское поселение',
-                            y: 16
-                        }, {
-                            name: 'Мариновское сельское поселение',
-                            y: 24
-                        }, {
-                            name: 'Серафимовический муниципальный район',
-                            y: 20
-                        }, {
-                            name: 'Паньшинское сельское поселение',
-                            y: 15
-                        }, {
-                            name: 'Алешкинское сельское поселение',
-                            y: 12
-                        }, {
-                            name: 'Прочее',
-                            y: 124
+                        },
+                        series: [{
+                            name: 'sities',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Городской округ город-герой Волгоград',
+                                y: 88,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Городищенский муниципальный район',
+                                y: 21
+                            }, {
+                                name: 'Калачевский муниципальный район',
+                                y: 17
+                            }, {
+                                name: 'Ильевское сельское поселение',
+                                y: 32
+                            }, {
+                                name: 'Ляпичевское сельское поселение',
+                                y: 21
+                            }, {
+                                name: 'Зарянское сельское поселение',
+                                y: 16
+                            }, {
+                                name: 'Мариновское сельское поселение',
+                                y: 24
+                            }, {
+                                name: 'Серафимовический муниципальный район',
+                                y: 20
+                            }, {
+                                name: 'Паньшинское сельское поселение',
+                                y: 15
+                            }, {
+                                name: 'Алешкинское сельское поселение',
+                                y: 12
+                            }, {
+                                name: 'Прочее',
+                                y: 124
+                            }]
                         }]
-                    }]
-                });
-            </script>
-        </div>
+                    });
+                </script>
+            </div>
 
-        <!--Второй график-->
-        <div id="graph2" class="graph container">
-            <div id="container2" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container2', {
-                    chart: {
-                        type: 'column'
-                    },
-                    title: {
-                        text: 'Количество пользователей типовой информационной системы'
-                    },
-                    xAxis: {
-                        type: 'category'
-                    },
-                    yAxis: {
+            <!--Второй график-->
+            <div id="graph2" class="graph container">
+                <div id="container2" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container2', {
+                        chart: {
+                            type: 'column'
+                        },
                         title: {
                             text: 'Количество пользователей типовой информационной системы'
-                        }
-                    },
-                    legend: {
-                        enabled: false
-                    },
-                    plotOptions: {
-                        series: {
-                            borderWidth: 0,
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.y:f}'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Количество пользователей типовой информационной системы'
                             }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: 'дата и значение ',
-                        pointFormat: '{point.name}г.- {point.y:f}'
-                    },
-                    series: [{
-                        name: 'Brands',
-                        colorByPoint: true,
-                        data: [{
-                            name: '01.01.2017',
-                            y: 11321,
-                            drilldown: 'Microsoft Internet Explorer'
-                        }, {
-                            name: '01.01.2018',
-                            y: 11794,
-                            drilldown: 'Chrome'
-                        }, {
-                            name: '01.01.2019',
-                            y: 10919,
-                            drilldown: 'Firefox'
-                        }, {
-                            name: '01.01.2020',
-                            y: 18454,
-                            drilldown: 'Safari'
-                        }]
-                    }],
-                });
-            </script>
-        </div>
-        <!--Третий график-->
-        <div id="graph3" class="graph container">
-            <!--Контейнер для регулировки положения диаграммы-->
-            <div id="container3" class="chart_wrap graph-item"></div>
-            <script>
-                Highcharts.chart('container3', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotShadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Количество пользователей специальной информационной системы'
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: {point.percentage:.1f}%'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.y:f}',
-                                style: {
-                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                            series: {
+                                borderWidth: 0,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.y:f}'
                                 }
                             }
-                        }
-                    },
-                    series: [{
-                        name: 'sities',
-                        colorByPoint: true,
-                        data: [{
-                            name: 'Городской округ город-герой Волгоград',
-                            y: 3742,
-                            sliced: true,
-                            selected: true
-                        }, {
-                            name: 'Октябрьский муниципальный район',
-                            y: 330
-                        }, {
-                            name: 'Новоаннинский муниципальный район',
-                            y: 60
-                        }, {
-                            name: 'Калачевский муниципальный район',
-                            y: 31
-                        }, {
-                            name: 'Советское сельское поселение',
-                            y: 21
-                        }, {
-                            name: 'Кумылженский муниципальный район',
-                            y: 19
-                        }, {
-                            name: 'Глазуновское сельское поселение',
-                            y: 14
-                        }, {
-                            name: 'Береславское сельское поселение',
-                            y: 12
-                        }, {
-                            name: 'Пятиизбянское сельское поселение',
-                            y: 12
-                        }, {
-                            name: 'Терновское сельское поселение',
-                            y: 12
-                        }, {
-                            name: 'Прочее',
-                            y: 109
+                        },
+                        tooltip: {
+                            headerFormat: 'дата и значение ',
+                            pointFormat: '{point.name}г.- {point.y:f}'
+                        },
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+                            data: [{
+                                name: '01.01.2017',
+                                y: 11321,
+                                drilldown: 'Microsoft Internet Explorer'
+                            }, {
+                                name: '01.01.2018',
+                                y: 11794,
+                                drilldown: 'Chrome'
+                            }, {
+                                name: '01.01.2019',
+                                y: 10919,
+                                drilldown: 'Firefox'
+                            }, {
+                                name: '01.01.2020',
+                                y: 18454,
+                                drilldown: 'Safari'
+                            }]
+                        }],
+                    });
+                </script>
+            </div>
+            <!--Третий график-->
+            <div id="graph3" class="graph container">
+                <!--Контейнер для регулировки положения диаграммы-->
+                <div id="container3" class="chart_wrap graph-item"></div>
+                <script>
+                    Highcharts.chart('container3', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Количество пользователей специальной информационной системы'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: {point.percentage:.1f}%'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.y:f}',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'sities',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Городской округ город-герой Волгоград',
+                                y: 3742,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: 'Октябрьский муниципальный район',
+                                y: 330
+                            }, {
+                                name: 'Новоаннинский муниципальный район',
+                                y: 60
+                            }, {
+                                name: 'Калачевский муниципальный район',
+                                y: 31
+                            }, {
+                                name: 'Советское сельское поселение',
+                                y: 21
+                            }, {
+                                name: 'Кумылженский муниципальный район',
+                                y: 19
+                            }, {
+                                name: 'Глазуновское сельское поселение',
+                                y: 14
+                            }, {
+                                name: 'Береславское сельское поселение',
+                                y: 12
+                            }, {
+                                name: 'Пятиизбянское сельское поселение',
+                                y: 12
+                            }, {
+                                name: 'Терновское сельское поселение',
+                                y: 12
+                            }, {
+                                name: 'Прочее',
+                                y: 109
+                            }]
                         }]
-                    }]
-                });
-            </script>
+                    });
+                </script>
+            </div>
         </div>
     </main>
 
